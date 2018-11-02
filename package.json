@@ -4,7 +4,8 @@
   "description": "Writes tweets live on the plotter, wow",
   "main": "app.js",
   "dependencies": {
-    "serialport": "^7.0.2"
+    "serialport": "^7.0.2",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
