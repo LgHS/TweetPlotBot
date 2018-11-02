@@ -1,2 +1,7 @@
 # TweetPlotBot
-Writes tweets live on the plotter, wow
+
+Writes tweets live on the plotter, wow such wonderful
+
+## Run 
+
+`npm start`
