@@ -28,7 +28,7 @@ Executed commands :
 * `VS1;` // set speed
 * `SI0.2,0.25` // set text size
 * `SP2;` // select second pen
-* `LB@handle:{ETX}` // write twitter handle and send End of Text character (ASCII code 003)
+* `LB@handle:{ETX};` // write twitter handle and send End of Text character (ASCII code 003)
 * `SP1;` // select first pen
-* `LBtwittertext` // write tweet (may be split in multiple lines)
+* `LBtwittertext{ETX};` // write tweet (may be split in multiple lines)
 * `CP;` // return carriage (start a new line)
