@@ -4,6 +4,7 @@
   "description": "Writes tweets live on the plotter, wow",
   "main": "app.js",
   "dependencies": {
+    "dotenv": "^6.1.0",
     "serialport": "^7.0.2",
     "twitter": "^1.7.1"
   },

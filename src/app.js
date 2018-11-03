@@ -1,6 +1,7 @@
 const util = require("./util");
 const SerialPort = require('serialport');
 const HPGL = require('./HPGL');
+require('dotenv').config();
 
 const hpgl = new HPGL();
 hpgl.connect();
@@ -44,3 +45,29 @@ convertTweetToHPGL = ({ name, message }) => {
 
   return HPGLString;
 };
+
+
+const Twitter = require('twitter');
+
+const client = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
+
+
+const stream = client.stream('statuses/filter', { track: process.env.TWITTER_KEYWORDS });
+stream.on('data', function (event) {
+  if (event) {
+    onTweetReceived({
+      name: '@' + event.user.screen_name,
+      tweet: event.text,
+    })
+  }
+  console.log('Tweet received !', '@' + event.user.screen_name, ': ', event.text);
+});
+
+stream.on('error', function (error) {
+  console.error('Error from twitter:', error.toString());
+});
